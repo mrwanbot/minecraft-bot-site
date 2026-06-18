@@ -7,7 +7,7 @@ function login() {
   const saved = localStorage.getItem("savedPass");
 
   if (p === PASSWORD || p === saved) {
-    openPanel();
+    openDashboard();
   } else {
     alert("كلمة السر خطأ ❌");
   }
@@ -26,7 +26,7 @@ function save() {
 }
 
 /* OPEN DASHBOARD */
-function openPanel() {
+function openDashboard() {
   document.getElementById("loginPage").classList.add("hidden");
   document.getElementById("dashboard").classList.remove("hidden");
 }
