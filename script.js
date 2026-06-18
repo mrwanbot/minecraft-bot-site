@@ -1,33 +1,32 @@
-// 🔐 كلمة السر
 const PASSWORD = "151525";
 
 /* LOGIN */
 function login() {
-  const pass = document.getElementById("password").value;
+  const p = document.getElementById("password").value;
 
   const saved = localStorage.getItem("savedPass");
 
-  if (pass === PASSWORD || pass === saved) {
-    openDashboard();
+  if (p === PASSWORD || p === saved) {
+    openPanel();
   } else {
     alert("كلمة السر خطأ ❌");
   }
 }
 
 /* SAVE PASSWORD */
-function savePassword() {
-  const pass = document.getElementById("password").value;
+function save() {
+  const p = document.getElementById("password").value;
 
-  if (pass === PASSWORD) {
-    localStorage.setItem("savedPass", pass);
+  if (p === PASSWORD) {
+    localStorage.setItem("savedPass", p);
     alert("تم الحفظ ✔");
   } else {
-    alert("لا يمكن حفظ كلمة خاطئة");
+    alert("كلمة السر غير صحيحة");
   }
 }
 
 /* OPEN DASHBOARD */
-function openDashboard() {
+function openPanel() {
   document.getElementById("loginPage").classList.add("hidden");
   document.getElementById("dashboard").classList.remove("hidden");
 }
