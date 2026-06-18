@@ -12,13 +12,12 @@
 
 <body>
 
-<!-- TOP -->
 <div class="topbar glass">
+  <img src="assets/logo.png" class="logo small">
   <span>لوحة استضافة السيرفر</span>
   <button class="btn ghost small" onclick="logout()">خروج</button>
 </div>
 
-<!-- CONTENT -->
 <div class="container">
 
   <div class="step">الخطوة 1 من 4</div>
@@ -32,14 +31,14 @@
     </p>
 
     <label>IP السيرفر</label>
-    <input placeholder="server ip">
+    <input id="ip" placeholder="server ip">
 
     <label>Port</label>
-    <input placeholder="25565">
+    <input id="port" placeholder="25565">
 
-    <button class="btn">Ping</button>
+    <button class="btn" onclick="pingServer()">Ping Server</button>
 
-    <div class="status">الحالة: لم يتم الاختبار</div>
+    <div class="status" id="status">الحالة: لم يتم الاختبار</div>
 
   </div>
 
@@ -49,6 +48,36 @@
 function logout() {
   localStorage.removeItem("loggedIn");
   window.location.href = "index.html";
+}
+
+/* 🔥 Ping حقيقي */
+async function pingServer() {
+
+  const ip = document.getElementById("ip").value;
+  const port = document.getElementById("port").value;
+
+  const status = document.getElementById("status");
+
+  if (!ip) {
+    alert("أدخل IP السيرفر");
+    return;
+  }
+
+  status.innerText = "جاري الفحص... ⏳";
+
+  try {
+    const res = await fetch(`https://api.mcsrvstat.us/2/${ip}:${port}`);
+    const data = await res.json();
+
+    if (data.online) {
+      status.innerText = `🟢 Online | Players: ${data.players.online}`;
+    } else {
+      status.innerText = "🔴 Offline";
+    }
+
+  } catch (e) {
+    status.innerText = "خطأ في الاتصال ❌";
+  }
 }
 </script>
 
