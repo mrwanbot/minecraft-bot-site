@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>لوحة الاستضافة</title>
+<title>Panel</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
@@ -14,7 +14,7 @@
 
 <div class="topbar glass">
   <img src="assets/logo.png" class="logo small">
-  <span>لوحة استضافة السيرفر</span>
+  <span>لوحة السيرفر</span>
   <button class="btn ghost small" onclick="logout()">خروج</button>
 </div>
 
@@ -26,12 +26,11 @@
   <div class="card glass">
 
     <p class="desc">
-      My Servers → Aternos → Connect<br>
-      example: myserver.aternos.me:25565
+      ضع IP + Port بشكل صحيح
     </p>
 
-    <label>IP السيرفر</label>
-    <input id="ip" placeholder="server ip">
+    <label>IP</label>
+    <input id="ip" placeholder="myserver.aternos.me">
 
     <label>Port</label>
     <input id="port" placeholder="25565">
@@ -50,7 +49,7 @@ function logout() {
   window.location.href = "index.html";
 }
 
-/* 🔥 Ping حقيقي */
+/* 🔥 Ping احترافي (API v3) */
 async function pingServer() {
 
   const ip = document.getElementById("ip").value;
@@ -59,14 +58,14 @@ async function pingServer() {
   const status = document.getElementById("status");
 
   if (!ip) {
-    alert("أدخل IP السيرفر");
+    alert("أدخل IP");
     return;
   }
 
   status.innerText = "جاري الفحص... ⏳";
 
   try {
-    const res = await fetch(`https://api.mcsrvstat.us/2/${ip}:${port}`);
+    const res = await fetch(`https://api.mcsrvstat.us/3/${ip}:${port}`);
     const data = await res.json();
 
     if (data.online) {
