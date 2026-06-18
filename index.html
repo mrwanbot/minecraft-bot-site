@@ -10,58 +10,37 @@
 
 <body>
 
-<!-- LOGIN PAGE -->
-<div id="loginPage" class="center">
-
-  <div class="glass login-box">
-
-    <img src="assets/logo.png" class="logo small">
-
-    <h2>Login Panel</h2>
-
-    <input id="password" type="password" placeholder="Enter Password">
-
-    <button class="btn" onclick="login()">Login</button>
-    <button class="btn save" onclick="savePassword()">Save</button>
-
-    <p class="info">أدخل كلمة السر أو احفظها للدخول لاحقًا</p>
-
-  </div>
-
+<div class="topbar glass">
+  <img src="assets/logo.png" class="logo">
+  <span>Minecraft Server Panel</span>
 </div>
 
-<!-- DASHBOARD -->
-<div id="dashboard" class="hidden">
+<div class="container">
 
-  <div class="glass header">
-    <img src="assets/logo.png" class="logo tiny">
-    <h3>Server Setup Wizard</h3>
-  </div>
+  <div class="step-title">Step 1 of 4 — Server Information</div>
 
-  <div class="glass card">
+  <div class="card glass">
 
-    <h4>Step 1 of 4 -- Server Info</h4>
-
-    <p class="info">
-      من أين تحصل على IP السيرفر:<br>
-      My Servers → Aternos → اختر السيرفر → Connect<br>
-      example: myserver.aternos.me:25565
+    <p class="desc">
+      من أين تحصل على IP السيرفر:<br><br>
+      👉 My Servers → Aternos → اختر السيرفر → Connect<br>
+      مثال: myserver.aternos.me:25565
     </p>
 
-    <label>Server IP</label>
-    <input id="ip" type="text" placeholder="Enter Server IP">
+    <label>Server Address (IP)</label>
+    <input placeholder="example: myserver.aternos.me">
 
-    <label>Port (default 25565)</label>
-    <input id="port" type="number" placeholder="25565">
+    <label>Port</label>
+    <input placeholder="25565">
 
-    <button class="btn">Ping</button>
-
-    <p class="status">Status: Not tested</p>
+    <div class="row">
+      <button class="btn">Ping</button>
+      <button class="btn ghost">Not Tested</button>
+    </div>
 
   </div>
 
 </div>
 
-<script src="script.js"></script>
 </body>
 </html>
