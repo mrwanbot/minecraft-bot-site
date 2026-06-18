@@ -2,7 +2,9 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Minecraft Panel</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Minecraft Panel Pro</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
@@ -10,33 +12,35 @@
 
 <body>
 
+<!-- TOP BAR -->
 <div class="topbar glass">
   <img src="assets/logo.png" class="logo">
-  <span>Minecraft Server Panel</span>
+  <span>Minecraft Panel</span>
 </div>
 
+<!-- STEP 1 -->
 <div class="container">
 
-  <div class="step-title">Step 1 of 4 — Server Information</div>
+  <div class="step">Step 1 of 4</div>
+  <div class="title">Server Information</div>
 
   <div class="card glass">
 
     <p class="desc">
       من أين تحصل على IP السيرفر:<br><br>
-      👉 My Servers → Aternos → اختر السيرفر → Connect<br>
-      مثال: myserver.aternos.me:25565
+      My Servers → Aternos → Connect<br>
+      example: myserver.aternos.me:25565
     </p>
 
-    <label>Server Address (IP)</label>
-    <input placeholder="example: myserver.aternos.me">
+    <label>Server IP</label>
+    <input type="text" placeholder="Enter server IP">
 
     <label>Port</label>
-    <input placeholder="25565">
+    <input type="number" placeholder="25565">
 
-    <div class="row">
-      <button class="btn">Ping</button>
-      <button class="btn ghost">Not Tested</button>
-    </div>
+    <button class="btn">Ping Server</button>
+
+    <div class="status">Status: Not tested</div>
 
   </div>
 
