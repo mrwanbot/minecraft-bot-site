@@ -1,4 +1,4 @@
-// Firebase config (ضع كودك هنا)
+// Firebase config (ضع بياناتك هنا من Firebase)
 const firebaseConfig = {
   apiKey: "YOUR_API_KEY",
   authDomain: "YOUR_AUTH_DOMAIN",
@@ -23,10 +23,12 @@ function googleLogin() {
       document.getElementById("user").innerText =
         result.user.displayName;
     })
-    .catch(err => alert(err.message));
+    .catch(error => {
+      alert(error.message);
+    });
 }
 
-// BOT (شكلي)
+// BOT (شكل فقط)
 function startBot() {
   alert("Bot Started 🟢");
 }
