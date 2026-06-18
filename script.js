@@ -1,11 +1,10 @@
-// Firebase config (ضع كودك من Firebase هنا)
 const firebaseConfig = {
-  apiKey: "YOUR_API_KEY",
-  authDomain: "YOUR_AUTH_DOMAIN",
-  projectId: "YOUR_PROJECT_ID",
-  storageBucket: "YOUR_STORAGE_BUCKET",
-  messagingSenderId: "YOUR_SENDER_ID",
-  appId: "YOUR_APP_ID"
+  apiKey: "AIzaSyDngvbbt_cfql7fyQkAeqmJ9qrxyKxqApo",
+  authDomain: "minecraft-panel-7fdfe-52128.firebaseapp.com",
+  projectId: "minecraft-panel-7fdfe-52128",
+  storageBucket: "minecraft-panel-7fdfe-52128.firebasestorage.app",
+  messagingSenderId: "621779806797",
+  appId: "1:621779806797:web:413324c0a0cc6891b24a04"
 };
 
 firebase.initializeApp(firebaseConfig);
@@ -35,4 +34,11 @@ function startBot() {
 
 function stopBot() {
   alert("Bot Stopped 🔴");
+}
+
+// LOGOUT (اختياري لكن مهم)
+function logout() {
+  auth.signOut().then(() => {
+    location.reload();
+  });
 }
