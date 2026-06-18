@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Minecraft Panel</title>
+<title>Minecraft Hosting Panel</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
@@ -12,7 +12,7 @@
 
 <body>
 
-<!-- 🔐 LOGIN PAGE ONLY -->
+<!-- 🔐 PAGE 1: LOGIN -->
 <div id="loginPage" class="center">
 
   <div class="glass box">
@@ -24,20 +24,20 @@
     <input id="password" type="password" placeholder="أدخل كلمة السر">
 
     <button class="btn" onclick="login()">دخول</button>
-    <button class="btn ghost" onclick="save()">حفظ</button>
+    <button class="btn ghost" onclick="save()">حفظ الدخول</button>
 
-    <p class="info">هذه الصفحة خاصة بالدخول فقط</p>
+    <p class="info">هذه الصفحة للدخول فقط</p>
 
   </div>
 
 </div>
 
-<!-- 🎮 DASHBOARD (hidden at start) -->
+<!-- 🎮 PAGE 2: DASHBOARD -->
 <div id="dashboard" class="hidden">
 
   <div class="topbar glass">
     <img src="assets/logo.png" class="logo small">
-    <span>لوحة الاستضافة</span>
+    <span>لوحة استضافة السيرفر</span>
   </div>
 
   <div class="container">
@@ -48,17 +48,18 @@
     <div class="card glass">
 
       <p class="desc">
+        للحصول على IP السيرفر:<br><br>
         My Servers → Aternos → Connect<br>
         example: myserver.aternos.me:25565
       </p>
 
-      <label>IP السيرفر</label>
+      <label>عنوان السيرفر (IP)</label>
       <input placeholder="server ip">
 
       <label>Port</label>
       <input placeholder="25565">
 
-      <button class="btn">Ping</button>
+      <button class="btn">Ping Server</button>
 
       <div class="status">الحالة: لم يتم الاختبار</div>
 
