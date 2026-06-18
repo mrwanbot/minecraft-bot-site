@@ -3,16 +3,17 @@ margin: 0;
 font-family: 'Cairo', sans-serif;
 color: white;
 
-/* 🔥 خلفية احترافية مثل HuggingFace */
-background: radial-gradient(circle at top, #1a2233, #0b0f19 60%, #05070d);
-min-height: 100vh;
-overflow-x: hidden;
+/* AI Dark Background */
+background: radial-gradient(circle at top, #1b2233, #0b0f19 60%, #05070d);
 
+min-height: 100vh;
+
+/* عربي صحيح */
 direction: rtl;
 text-align: right;
 }
 
-/* grid احترافي */
+/* grid */
 body::before {
 content: "";
 position: fixed;
@@ -44,9 +45,20 @@ align-items: center;
 
 /* BOX */
 .box {
-width: 280px;
+width: 300px;
 text-align: center;
 padding: 20px;
+}
+
+/* LOGO */
+.logo {
+width: 90px;
+margin: auto;
+display: block;
+}
+
+.logo.small {
+width: 40px;
 }
 
 /* TOPBAR */
@@ -56,10 +68,6 @@ align-items: center;
 gap: 10px;
 padding: 12px;
 margin: 10px;
-}
-
-.logo {
-width: 38px;
 }
 
 /* CONTAINER */
@@ -115,15 +123,15 @@ border: 1px solid rgba(255,255,255,0.15);
 color: white;
 border-radius: 12px;
 cursor: pointer;
-transition: 0.2s;
 }
 
 .btn:hover {
-transform: scale(1.03);
+transform: scale(1.02);
 }
 
 .ghost {
 background: transparent;
+border: 1px solid rgba(255,255,255,0.4);
 }
 
 /* STATUS */
@@ -133,6 +141,7 @@ font-size: 12px;
 opacity: 0.6;
 }
 
+/* HIDDEN */
 .hidden {
 display: none;
 }
