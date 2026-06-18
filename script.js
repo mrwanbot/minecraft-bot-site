@@ -1,6 +1,5 @@
-// Firebase config
 const firebaseConfig = {
-apiKey: "AIzaSyDngvbbt_cfql7fyQkAeqmJ9qrxyKxqApo",
+  apiKey: "AIzaSyDngvbbt_cfql7fyQkAeqmJ9qrxyKxqApo",
   authDomain: "minecraft-panel-7fdfe-52128.firebaseapp.com",
   projectId: "minecraft-panel-7fdfe-52128",
   storageBucket: "minecraft-panel-7fdfe-52128.firebasestorage.app",
@@ -11,25 +10,55 @@ apiKey: "AIzaSyDngvbbt_cfql7fyQkAeqmJ9qrxyKxqApo",
 firebase.initializeApp(firebaseConfig);
 const auth = firebase.auth();
 
-// LOGIN
+let currentUser = null;
+
+/* LOGIN */
 function googleLogin() {
   const provider = new firebase.auth.GoogleAuthProvider();
 
   auth.signInWithPopup(provider)
     .then(result => {
-      document.getElementById("loginPage").style.display = "none";
-      document.getElementById("dashboard").classList.remove("hidden");
+      currentUser = result.user;
 
-      document.getElementById("user").innerText =
-        result.user.displayName;
+      // إذا محفوظ يدخل مباشرة
+      if (localStorage.getItem("savedUser") === currentUser.uid) {
+        openDashboard(currentUser);
+      } else {
+        alert("سجّلت دخول، الآن اضغط حفظ للدخول الدائم");
+      }
     })
-    .catch(error => alert(error.message));
+    .catch(err => alert(err.message));
 }
 
-// BOT (شكلي)
-function startBot() {
-  alert("Bot Started 🟢");
+/* SAVE LOGIN */
+function saveLogin() {
+  if (!currentUser) {
+    alert("سجّل دخول أولاً");
+    return;
+  }
+
+  localStorage.setItem("savedUser", currentUser.uid);
+
+  alert("تم الحفظ ✔ الآن الدخول سيكون تلقائي");
+
+  openDashboard(currentUser);
 }
 
-function stopBot() {
-  alert("Bot Stopped 🔴");
+/* AUTO LOGIN */
+window.onload = function () {
+  const saved = localStorage.getItem("savedUser");
+
+  if (saved) {
+    auth.onAuthStateChanged(user => {
+      if (user && user.uid === saved) {
+        openDashboard(user);
+      }
+    });
+  }
+};
+
+/* OPEN DASHBOARD */
+function openDashboard(user) {
+  document.getElementById("loginPage").classList.add("hidden");
+  document.getElementById("dashboard").classList.remove("hidden");
+}
