@@ -1,19 +1,24 @@
-/* منع السكرول */
+/* منع الحركة */
 html, body {
   height: 100%;
-  overflow: hidden;
   margin: 0;
+  overflow: hidden;
 }
 
-/* الخط والخلفية */
+/* الخط + الخلفية */
 body {
   font-family: 'Cairo', sans-serif;
   background: url("assets/bg.jpg") no-repeat center center fixed;
   background-size: cover;
   color: white;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }
 
-/* LOGIN CENTER */
+/* LOGIN */
 .center {
   height: 100vh;
   display: flex;
@@ -54,20 +59,15 @@ body {
   margin: 10px;
 }
 
-.logo-small {
-  width: 40px;
-}
-
-/* DASHBOARD ZOOM (قريب) */
+/* DASHBOARD CENTER + ZOOM 🔥 */
 .container {
   display: flex;
   justify-content: center;
   gap: 20px;
-  margin-top: 30px;
+  margin-top: 20px;
 
-  transform: scale(1.15);
+  transform: scale(1.4);
   transform-origin: center;
-  flex-wrap: wrap;
 }
 
 /* CARD */
