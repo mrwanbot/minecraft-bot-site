@@ -1,1 +1,2 @@
-# minecraft-bot-site
+# Minecraft Bot Site
+موقع بسيط للتحكم بالبوتات.
