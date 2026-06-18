@@ -1,28 +1,36 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
+<html lang="ar">
 <head>
-<meta charset="UTF-8">
-<title>Minecraft Bot Panel</title>
-<link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Minecraft Bot Panel</title>
+  <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
-<div class="container">
-<h1>لوحة البوتات</h1>
+  <header>
+    <img src="assets/logo.png" class="logo">
+    <h1>Minecraft Bot Panel</h1>
+  </header>
 
-<input type="text" placeholder="IP السيرفر">
+  <div class="container">
 
-<select>
-<option>كشف تلقائي</option>
-<option>1.21.1</option>
-<option>1.20.4</option>
-</select>
+    <div class="card">
+      <h2>Bot Status</h2>
+      <p id="status">Offline</p>
+      <button onclick="startBot()">Start Bot</button>
+      <button onclick="stopBot()">Stop Bot</button>
+    </div>
 
-<input type="text" placeholder="اسم البوت">
+    <div class="card">
+      <h2>Commands</h2>
+      <input type="text" id="command" placeholder="Enter command">
+      <button onclick="sendCommand()">Send</button>
+    </div>
 
-<button onclick="startBot()">تشغيل</button>
-</div>
+  </div>
 
-<script src="script.js"></script>
+  <script src="script.js"></script>
 </body>
 </html>
