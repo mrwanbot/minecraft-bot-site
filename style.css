@@ -1,100 +1,67 @@
-body {
-margin: 0;
-font-family: 'Cairo', sans-serif;
-background: url("assets/bg.jpg") no-repeat center center fixed;
-background-size: cover;
-color: white;
-overflow: hidden;
-}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Minecraft Panel</title>
 
-/* CENTER */
-.center {
-height: 100vh;
-display: flex;
-justify-content: center;
-align-items: center;
-}
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
 
-/* GLASS */
-.glass {
-background: rgba(255,255,255,0.08);
-backdrop-filter: blur(12px);
-border: 1px solid rgba(255,255,255,0.2);
-border-radius: 15px;
-padding: 20px;
-}
+<body>
 
-/* LOGIN BOX */
-.login-box {
-width: 300px;
-text-align: center;
-}
+<!-- LOGIN PAGE -->
+<div id="loginPage" class="center">
 
-/* HEADER */
-.header {
-display: flex;
-align-items: center;
-gap: 10px;
-margin: 10px;
-}
+  <div class="glass login-box">
 
-/* LOGOS */
-.logo {
-width: 100px;
-display: block;
-margin: auto;
-}
+    <img src="assets/logo.png" class="logo small">
 
-.logo.small { width: 90px; }
-.logo.tiny { width: 40px; }
+    <h2>Login Panel</h2>
 
-/* CARD */
-.card {
-width: 420px;
-margin: 20px auto;
-}
+    <input id="password" type="password" placeholder="Enter Password">
 
-/* INPUT */
-input {
-width: 100%;
-padding: 10px;
-margin: 5px 0 15px 0;
-border: none;
-border-radius: 8px;
-outline: none;
-}
+    <button class="btn" onclick="login()">Login</button>
+    <button class="btn save" onclick="savePassword()">Save</button>
 
-/* BUTTON */
-.btn {
-width: 100%;
-padding: 10px;
-margin-top: 10px;
-background: rgba(255,255,255,0.15);
-border: 1px solid rgba(255,255,255,0.3);
-color: white;
-border-radius: 10px;
-cursor: pointer;
-transition: 0.3s;
-}
+    <p class="info">أدخل كلمة السر أو احفظها للدخول لاحقًا</p>
 
-.btn:hover {
-transform: scale(1.03);
-}
+  </div>
 
-.save {
-border-color: gold;
-}
+</div>
 
-.info {
-font-size: 13px;
-opacity: 0.8;
-}
+<!-- DASHBOARD -->
+<div id="dashboard" class="hidden">
 
-.status {
-font-size: 13px;
-opacity: 0.7;
-}
+  <div class="glass header">
+    <img src="assets/logo.png" class="logo tiny">
+    <h3>Server Setup Wizard</h3>
+  </div>
 
-.hidden {
-display: none;
-}
+  <div class="glass card">
+
+    <h4>Step 1 of 4 -- Server Info</h4>
+
+    <p class="info">
+      من أين تحصل على IP السيرفر:<br>
+      My Servers → Aternos → اختر السيرفر → Connect<br>
+      example: myserver.aternos.me:25565
+    </p>
+
+    <label>Server IP</label>
+    <input id="ip" type="text" placeholder="Enter Server IP">
+
+    <label>Port (default 25565)</label>
+    <input id="port" type="number" placeholder="25565">
+
+    <button class="btn">Ping</button>
+
+    <p class="status">Status: Not tested</p>
+
+  </div>
+
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
