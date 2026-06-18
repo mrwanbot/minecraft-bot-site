@@ -26,7 +26,7 @@
   <div class="card glass">
 
     <p class="desc">
-      ضع IP + Port بشكل صحيح
+      أدخل IP + Port بشكل صحيح
     </p>
 
     <label>IP</label>
@@ -49,11 +49,11 @@ function logout() {
   window.location.href = "index.html";
 }
 
-/* 🔥 Ping احترافي (API v3) */
+/* 🔥 Ping محسن */
 async function pingServer() {
 
-  const ip = document.getElementById("ip").value;
-  const port = document.getElementById("port").value;
+  const ip = document.getElementById("ip").value.trim();
+  const port = document.getElementById("port").value.trim();
 
   const status = document.getElementById("status");
 
@@ -65,13 +65,24 @@ async function pingServer() {
   status.innerText = "جاري الفحص... ⏳";
 
   try {
-    const res = await fetch(`https://api.mcsrvstat.us/3/${ip}:${port}`);
+    const url = `https://api.mcsrvstat.us/3/${ip}:${port}`;
+    const res = await fetch(url);
     const data = await res.json();
 
-    if (data.online) {
-      status.innerText = `🟢 Online | Players: ${data.players.online}`;
+    console.log("SERVER DATA:", data);
+
+    /* 🔥 تحسين الدقة */
+    if (data && data.ip) {
+
+      if (data.online === true) {
+        status.innerText =
+          `🟢 Online | Players: ${data.players?.online ?? 0}`;
+      } else {
+        status.innerText = "🔴 Offline";
+      }
+
     } else {
-      status.innerText = "🔴 Offline";
+      status.innerText = "🔴 لا يمكن التحقق من السيرفر";
     }
 
   } catch (e) {
