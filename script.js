@@ -1,3 +1,18 @@
+function login() {
+  let user = document.getElementById("username").value;
+  let pass = document.getElementById("password").value;
+  let error = document.getElementById("error");
+
+  // بيانات تسجيل دخول (تجريبية فقط)
+  if(user === "admin" && pass === "1234") {
+    document.getElementById("loginPage").style.display = "none";
+    document.getElementById("panel").classList.remove("hidden");
+  } else {
+    error.innerHTML = "❌ Wrong username or password";
+  }
+}
+
+// Bot functions
 let statusText = document.getElementById("status");
 
 function startBot() {
