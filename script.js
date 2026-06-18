@@ -1,6 +1,6 @@
 const PASSWORD = "151525";
 
-/* LOGIN */
+/* LOGIN PAGE */
 function login() {
   const p = document.getElementById("password").value;
 
@@ -25,7 +25,7 @@ function save() {
   }
 }
 
-/* OPEN DASHBOARD */
+/* SWITCH TO PAGE 2 */
 function openDashboard() {
   document.getElementById("loginPage").classList.add("hidden");
   document.getElementById("dashboard").classList.remove("hidden");
