@@ -1,12 +1,19 @@
-body {
+/* منع السكرول */
+html, body {
+  height: 100%;
+  overflow: hidden;
   margin: 0;
+}
+
+/* الخط والخلفية */
+body {
   font-family: 'Cairo', sans-serif;
   background: url("assets/bg.jpg") no-repeat center center fixed;
   background-size: cover;
   color: white;
 }
 
-/* CENTER LOGIN */
+/* LOGIN CENTER */
 .center {
   height: 100vh;
   display: flex;
@@ -51,16 +58,15 @@ body {
   width: 40px;
 }
 
-/* DASHBOARD */
-.hidden {
-  display: none;
-}
-
+/* DASHBOARD ZOOM (قريب) */
 .container {
   display: flex;
   justify-content: center;
   gap: 20px;
-  margin-top: 50px;
+  margin-top: 30px;
+
+  transform: scale(1.15);
+  transform-origin: center;
   flex-wrap: wrap;
 }
 
@@ -96,4 +102,8 @@ body {
 
 .red {
   border-color: red;
+}
+
+.hidden {
+  display: none;
 }
