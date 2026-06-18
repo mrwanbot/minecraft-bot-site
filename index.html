@@ -1,10 +1,10 @@
-ؤ<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html>
+<html lang="ar">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Minecraft Panel</title>
+<title>لوحة الاستضافة</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
@@ -15,32 +15,37 @@
 <!-- TOP BAR -->
 <div class="topbar glass">
   <img src="assets/logo.png" class="logo">
-  <span>Minecraft Panel</span>
+  <span>لوحة استضافة ماينكرافت</span>
 </div>
 
-<!-- STEP -->
+<!-- STEP SYSTEM -->
 <div class="container">
 
-  <div class="step">Step 1 of 4</div>
-  <div class="title">Server Information</div>
+  <div class="step">الخطوة 1 من 4</div>
+  <div class="title">بيانات السيرفر</div>
 
   <div class="card glass">
 
     <p class="desc">
-      من أين تحصل على IP السيرفر:<br><br>
+      📌 طريقة الحصول على IP:<br><br>
       My Servers → Aternos → Connect<br>
-      example: myserver.aternos.me:25565
+      مثال: myserver.aternos.me:25565
     </p>
 
-    <label>Server IP</label>
-    <input placeholder="Enter IP">
+    <label>عنوان السيرفر (IP)</label>
+    <input type="text" placeholder="myserver.aternos.me">
 
-    <label>Port</label>
-    <input placeholder="25565">
+    <label>البورت</label>
+    <input type="number" placeholder="25565">
 
-    <button class="btn">Ping Server</button>
+    <button class="btn">اختبار الاتصال (Ping)</button>
 
-    <div class="status">Status: Not tested</div>
+    <div class="status">الحالة: لم يتم الاختبار بعد</div>
+
+    <div class="row">
+      <button class="btn ghost">Ping</button>
+      <button class="btn ghost">غير متصل</button>
+    </div>
 
   </div>
 
