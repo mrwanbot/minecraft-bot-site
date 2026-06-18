@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>لوحة الاستضافة</title>
+<title>Minecraft Panel</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
@@ -12,28 +12,32 @@
 
 <body>
 
-<!-- LOGIN -->
-<div id="login" class="center">
+<!-- 🔐 LOGIN PAGE ONLY -->
+<div id="loginPage" class="center">
 
   <div class="glass box">
 
+    <img src="assets/logo.png" class="logo">
+
     <h2>تسجيل الدخول</h2>
 
-    <input id="pass" type="password" placeholder="أدخل كلمة السر">
+    <input id="password" type="password" placeholder="أدخل كلمة السر">
 
     <button class="btn" onclick="login()">دخول</button>
     <button class="btn ghost" onclick="save()">حفظ</button>
+
+    <p class="info">هذه الصفحة خاصة بالدخول فقط</p>
 
   </div>
 
 </div>
 
-<!-- DASHBOARD -->
-<div id="panel" class="hidden">
+<!-- 🎮 DASHBOARD (hidden at start) -->
+<div id="dashboard" class="hidden">
 
   <div class="topbar glass">
-    <img src="assets/logo.png" class="logo">
-    <span>لوحة استضافة السيرفر</span>
+    <img src="assets/logo.png" class="logo small">
+    <span>لوحة الاستضافة</span>
   </div>
 
   <div class="container">
@@ -44,15 +48,14 @@
     <div class="card glass">
 
       <p class="desc">
-        للحصول على IP السيرفر:<br>
         My Servers → Aternos → Connect<br>
-        مثال: myserver.aternos.me:25565
+        example: myserver.aternos.me:25565
       </p>
 
       <label>IP السيرفر</label>
-      <input placeholder="myserver.aternos.me">
+      <input placeholder="server ip">
 
-      <label>البورت</label>
+      <label>Port</label>
       <input placeholder="25565">
 
       <button class="btn">Ping</button>
