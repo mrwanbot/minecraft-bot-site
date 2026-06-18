@@ -16,6 +16,9 @@
 
   <div class="glass box">
 
+    <!-- 🔥 LOGO -->
+    <img src="assets/logo.png" class="logo">
+
     <h2>تسجيل الدخول</h2>
 
     <input id="password" type="password" placeholder="أدخل كلمة السر">
@@ -30,7 +33,7 @@
 <script>
 const PASSWORD = "151525";
 
-/* 🔥 إذا محفوظ دخول → يدخل مباشرة */
+/* إذا محفوظ دخول يدخل مباشرة */
 window.onload = function () {
   if (localStorage.getItem("loggedIn") === "true") {
     window.location.href = "panel.html";
@@ -50,14 +53,14 @@ function login() {
   }
 }
 
-/* حفظ الدخول */
+/* حفظ دخول */
 function save() {
   const p = document.getElementById("password").value;
 
   if (p === PASSWORD) {
     localStorage.setItem("savedPass", p);
     localStorage.setItem("loggedIn", "true");
-    alert("تم الحفظ ✔ لن يطلب تسجيل الدخول مرة ثانية");
+    alert("تم الحفظ ✔");
     window.location.href = "panel.html";
   } else {
     alert("كلمة السر غير صحيحة");
