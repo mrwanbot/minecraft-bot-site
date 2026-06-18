@@ -12,44 +12,59 @@
 
 <body>
 
-<!-- TOP BAR -->
-<div class="topbar glass">
-  <img src="assets/logo.png" class="logo">
-  <span>لوحة استضافة ماينكرافت</span>
+<!-- LOGIN -->
+<div id="login" class="center">
+
+  <div class="glass box">
+
+    <h2>تسجيل الدخول</h2>
+
+    <input id="pass" type="password" placeholder="أدخل كلمة السر">
+
+    <button class="btn" onclick="login()">دخول</button>
+    <button class="btn ghost" onclick="save()">حفظ</button>
+
+  </div>
+
 </div>
 
-<!-- STEP SYSTEM -->
-<div class="container">
+<!-- DASHBOARD -->
+<div id="panel" class="hidden">
 
-  <div class="step">الخطوة 1 من 4</div>
-  <div class="title">بيانات السيرفر</div>
+  <div class="topbar glass">
+    <img src="assets/logo.png" class="logo">
+    <span>لوحة استضافة السيرفر</span>
+  </div>
 
-  <div class="card glass">
+  <div class="container">
 
-    <p class="desc">
-      📌 طريقة الحصول على IP:<br><br>
-      My Servers → Aternos → Connect<br>
-      مثال: myserver.aternos.me:25565
-    </p>
+    <div class="step">الخطوة 1 من 4</div>
+    <div class="title">بيانات السيرفر</div>
 
-    <label>عنوان السيرفر (IP)</label>
-    <input type="text" placeholder="myserver.aternos.me">
+    <div class="card glass">
 
-    <label>البورت</label>
-    <input type="number" placeholder="25565">
+      <p class="desc">
+        للحصول على IP السيرفر:<br>
+        My Servers → Aternos → Connect<br>
+        مثال: myserver.aternos.me:25565
+      </p>
 
-    <button class="btn">اختبار الاتصال (Ping)</button>
+      <label>IP السيرفر</label>
+      <input placeholder="myserver.aternos.me">
 
-    <div class="status">الحالة: لم يتم الاختبار بعد</div>
+      <label>البورت</label>
+      <input placeholder="25565">
 
-    <div class="row">
-      <button class="btn ghost">Ping</button>
-      <button class="btn ghost">غير متصل</button>
+      <button class="btn">Ping</button>
+
+      <div class="status">الحالة: لم يتم الاختبار</div>
+
     </div>
 
   </div>
 
 </div>
 
+<script src="script.js"></script>
 </body>
 </html>
