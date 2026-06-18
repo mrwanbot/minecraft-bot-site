@@ -3,17 +3,18 @@ margin: 0;
 font-family: 'Cairo', sans-serif;
 color: white;
 
-/* AI Dark Background */
+/* 🔥 خلفية AI مثل HuggingFace */
 background: radial-gradient(circle at top, #1b2233, #0b0f19 60%, #05070d);
 
 min-height: 100vh;
+overflow-x: hidden;
 
-/* عربي صحيح */
+/* 🇸🇦 عربي صحيح */
 direction: rtl;
 text-align: right;
 }
 
-/* grid */
+/* GRID */
 body::before {
 content: "";
 position: fixed;
@@ -43,7 +44,7 @@ justify-content: center;
 align-items: center;
 }
 
-/* BOX */
+/* LOGIN BOX */
 .box {
 width: 300px;
 text-align: center;
@@ -53,8 +54,8 @@ padding: 20px;
 /* LOGO */
 .logo {
 width: 90px;
-margin: auto;
 display: block;
+margin: auto;
 }
 
 .logo.small {
