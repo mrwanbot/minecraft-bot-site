@@ -1,64 +1,33 @@
-// Firebase config (حط بياناتك هنا)
-const firebaseConfig = {
-  apiKey: "AIzaSyDngvbbt_cfql7fyQkAeqmJ9qrxyKxqApo",
-  authDomain: "minecraft-panel-7fdfe-52128.firebaseapp.com",
-  projectId: "minecraft-panel-7fdfe-52128",
-  storageBucket: "minecraft-panel-7fdfe-52128.firebasestorage.app",
-  messagingSenderId: "621779806797",
-  appId: "1:621779806797:web:413324c0a0cc6891b24a04"
-};
+// 🔐 كلمة السر
+const PASSWORD = "151525";
 
-firebase.initializeApp(firebaseConfig);
-const auth = firebase.auth();
+/* LOGIN */
+function login() {
+  const pass = document.getElementById("password").value;
 
-let currentUser = null;
+  const saved = localStorage.getItem("savedPass");
 
-/* LOGIN GOOGLE */
-function googleLogin() {
-  const provider = new firebase.auth.GoogleAuthProvider();
-
-  auth.signInWithPopup(provider)
-    .then(result => {
-      currentUser = result.user;
-
-      if (localStorage.getItem("savedUser") === currentUser.uid) {
-        openDashboard(currentUser);
-      } else {
-        alert("تم تسجيل الدخول، اضغط Save لتفعيل الدخول التلقائي");
-      }
-    })
-    .catch(err => alert(err.message));
+  if (pass === PASSWORD || pass === saved) {
+    openDashboard();
+  } else {
+    alert("كلمة السر خطأ ❌");
+  }
 }
 
-/* SAVE LOGIN */
-function saveLogin() {
-  if (!currentUser) {
-    alert("سجل دخول أولاً");
-    return;
+/* SAVE PASSWORD */
+function savePassword() {
+  const pass = document.getElementById("password").value;
+
+  if (pass === PASSWORD) {
+    localStorage.setItem("savedPass", pass);
+    alert("تم الحفظ ✔");
+  } else {
+    alert("لا يمكن حفظ كلمة خاطئة");
   }
-
-  localStorage.setItem("savedUser", currentUser.uid);
-
-  alert("تم الحفظ ✔");
-
-  openDashboard(currentUser);
 }
-
-/* AUTO LOGIN */
-window.onload = function () {
-  const saved = localStorage.getItem("savedUser");
-
-  if (saved) {
-    auth.onAuthStateChanged(user => {
-      if (user && user.uid === saved) {
-        openDashboard(user);
-      }
-    });
-  }
-};
 
 /* OPEN DASHBOARD */
-function openDashboard(user) {
+function openDashboard() {
   document.getElementById("loginPage").classList.add("hidden");
   document.getElementById("dashboard").classList.remove("hidden");
 }
