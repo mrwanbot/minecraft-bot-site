@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Panel</title>
+<title>لوحة السيرفر</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
@@ -26,7 +26,7 @@
   <div class="card glass">
 
     <p class="desc">
-      أدخل IP + Port بشكل صحيح
+      أدخل IP و Port ثم اضغط Ping
     </p>
 
     <label>IP</label>
@@ -49,7 +49,7 @@ function logout() {
   window.location.href = "index.html";
 }
 
-/* 🔥 Ping محسن */
+/* 🔥 Ping جاهز بدون أخطاء */
 async function pingServer() {
 
   const ip = document.getElementById("ip").value.trim();
@@ -58,35 +58,31 @@ async function pingServer() {
   const status = document.getElementById("status");
 
   if (!ip) {
-    alert("أدخل IP");
+    alert("أدخل IP السيرفر");
     return;
   }
 
   status.innerText = "جاري الفحص... ⏳";
 
   try {
-    const url = `https://api.mcsrvstat.us/3/${ip}:${port}`;
-    const res = await fetch(url);
+    const res = await fetch(`https://api.mcsrvstat.us/3/${ip}:${port}`);
     const data = await res.json();
 
-    console.log("SERVER DATA:", data);
-
-    /* 🔥 تحسين الدقة */
-    if (data && data.ip) {
+    if (data && typeof data.online !== "undefined") {
 
       if (data.online === true) {
-        status.innerText =
-          `🟢 Online | Players: ${data.players?.online ?? 0}`;
+        const players = data.players?.online ?? 0;
+        status.innerText = `🟢 Online | Players: ${players}`;
       } else {
         status.innerText = "🔴 Offline";
       }
 
     } else {
-      status.innerText = "🔴 لا يمكن التحقق من السيرفر";
+      status.innerText = "⚠️ لا يمكن قراءة السيرفر";
     }
 
   } catch (e) {
-    status.innerText = "خطأ في الاتصال ❌";
+    status.innerText = "❌ خطأ في الاتصال";
   }
 }
 </script>
