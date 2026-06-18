@@ -1,6 +1,6 @@
 body {
   margin: 0;
-  font-family: Arial;
+  font-family: 'Cairo', sans-serif;
   background: url("assets/bg.jpg") no-repeat center center fixed;
   background-size: cover;
   color: white;
@@ -14,24 +14,28 @@ body {
   align-items: center;
 }
 
-/* GLASS EFFECT */
+/* GLASS DESIGN */
 .glass-box, .glass-card, .glass-header {
   background: rgba(255, 255, 255, 0.08);
   backdrop-filter: blur(12px);
   border: 1px solid rgba(255,255,255,0.2);
   border-radius: 15px;
-  box-shadow: 0 8px 32px rgba(0,0,0,0.4);
+  box-shadow: 0 8px 30px rgba(0,0,0,0.5);
 }
 
 /* LOGIN BOX */
 .glass-box {
   padding: 30px;
-  text-align: center;
   width: 300px;
+  text-align: center;
 }
 
+/* LOGO */
 .logo {
-  width: 120px;
+  width: 130px;
+  display: block;
+  margin: 0 auto 15px auto;
+  filter: drop-shadow(0 0 10px lime);
 }
 
 /* HEADER */
@@ -47,12 +51,16 @@ body {
   width: 40px;
 }
 
-/* CONTAINER */
+/* DASHBOARD */
+.hidden {
+  display: none;
+}
+
 .container {
   display: flex;
   justify-content: center;
   gap: 20px;
-  margin-top: 40px;
+  margin-top: 50px;
   flex-wrap: wrap;
 }
 
@@ -64,24 +72,22 @@ body {
 }
 
 /* BUTTONS */
-.glass-btn {
+.btn {
   margin-top: 10px;
-  padding: 12px 20px;
+  padding: 10px 15px;
   border: none;
   cursor: pointer;
   border-radius: 10px;
-  color: white;
 
   background: rgba(255,255,255,0.15);
+  color: white;
   backdrop-filter: blur(10px);
   border: 1px solid rgba(255,255,255,0.3);
-
   transition: 0.3s;
 }
 
-.glass-btn:hover {
+.btn:hover {
   transform: scale(1.05);
-  background: rgba(255,255,255,0.25);
 }
 
 .green {
@@ -90,8 +96,4 @@ body {
 
 .red {
   border-color: red;
-}
-
-.hidden {
-  display: none;
 }
