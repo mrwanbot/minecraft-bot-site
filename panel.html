@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>لوحة السيرفر</title>
+<title>Panel</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
@@ -24,10 +24,6 @@
   <div class="title">بيانات السيرفر</div>
 
   <div class="card glass">
-
-    <p class="desc">
-      أدخل IP و Port ثم اضغط Ping
-    </p>
 
     <label>IP</label>
     <input id="ip" placeholder="myserver.aternos.me">
@@ -49,12 +45,11 @@ function logout() {
   window.location.href = "index.html";
 }
 
-/* 🔥 Ping جاهز بدون أخطاء */
+/* 🚀 Ping احترافي 100% (مع إعادة محاولة) */
 async function pingServer() {
 
   const ip = document.getElementById("ip").value.trim();
   const port = document.getElementById("port").value.trim();
-
   const status = document.getElementById("status");
 
   if (!ip) {
@@ -64,26 +59,45 @@ async function pingServer() {
 
   status.innerText = "جاري الفحص... ⏳";
 
-  try {
-    const res = await fetch(`https://api.mcsrvstat.us/3/${ip}:${port}`);
-    const data = await res.json();
+  const url = `https://api.mcsrvstat.us/3/${ip}:${port}`;
 
-    if (data && typeof data.online !== "undefined") {
+  let attempts = 0;
+  const maxAttempts = 2;
 
-      if (data.online === true) {
-        const players = data.players?.online ?? 0;
-        status.innerText = `🟢 Online | Players: ${players}`;
-      } else {
-        status.innerText = "🔴 Offline";
+  async function check() {
+    try {
+      const res = await fetch(url);
+      const data = await res.json();
+
+      console.log(data);
+
+      if (data && data.ip) {
+
+        if (data.online === true) {
+          const players = data.players?.online ?? 0;
+          status.innerText = `🟢 Online | Players: ${players}`;
+        } else {
+          status.innerText = "🔴 Offline";
+        }
+
+        return true;
       }
 
-    } else {
-      status.innerText = "⚠️ لا يمكن قراءة السيرفر";
-    }
+      return false;
 
-  } catch (e) {
-    status.innerText = "❌ خطأ في الاتصال";
+    } catch (e) {
+      return false;
+    }
   }
+
+  while (attempts < maxAttempts) {
+    const ok = await check();
+    if (ok) return;
+    attempts++;
+    await new Promise(r => setTimeout(r, 1200));
+  }
+
+  status.innerText = "⚠️ لا يمكن التحقق من السيرفر";
 }
 </script>
 
