@@ -1,5 +1,6 @@
+// Firebase config
 const firebaseConfig = {
-  apiKey: "AIzaSyDngvbbt_cfql7fyQkAeqmJ9qrxyKxqApo",
+apiKey: "AIzaSyDngvbbt_cfql7fyQkAeqmJ9qrxyKxqApo",
   authDomain: "minecraft-panel-7fdfe-52128.firebaseapp.com",
   projectId: "minecraft-panel-7fdfe-52128",
   storageBucket: "minecraft-panel-7fdfe-52128.firebasestorage.app",
@@ -10,7 +11,7 @@ const firebaseConfig = {
 firebase.initializeApp(firebaseConfig);
 const auth = firebase.auth();
 
-// LOGIN GOOGLE
+// LOGIN
 function googleLogin() {
   const provider = new firebase.auth.GoogleAuthProvider();
 
@@ -22,23 +23,13 @@ function googleLogin() {
       document.getElementById("user").innerText =
         result.user.displayName;
     })
-    .catch(error => {
-      alert(error.message);
-    });
+    .catch(error => alert(error.message));
 }
 
-// BOT (شكل فقط)
+// BOT (شكلي)
 function startBot() {
   alert("Bot Started 🟢");
 }
 
 function stopBot() {
   alert("Bot Stopped 🔴");
-}
-
-// LOGOUT (اختياري لكن مهم)
-function logout() {
-  auth.signOut().then(() => {
-    location.reload();
-  });
-}
