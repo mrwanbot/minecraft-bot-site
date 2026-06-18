@@ -1,54 +1,65 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Minecraft Panel</title>
+<meta charset="UTF-8">
+<title>Minecraft Panel</title>
 
-  <!-- Cairo Font -->
-  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600&display=swap" rel="stylesheet">
 
-  <link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="style.css">
 
-  <!-- Firebase -->
-  <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app-compat.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-auth-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-auth-compat.js"></script>
 </head>
 
 <body>
 
 <!-- LOGIN -->
-<div id="loginPage" class="center">
-  <div class="glass-box">
-    <img src="assets/logo.png" class="logo">
+<div id="loginPage" class="center zoom">
 
-    <h1>Minecraft Panel</h1>
-    <p>Login with Google</p>
+  <div class="glass small-box">
 
-    <button class="btn" onclick="googleLogin()">🔐 Login</button>
+    <img src="assets/logo.png" class="logo small">
+
+    <h2>Login</h2>
+
+    <button class="btn" onclick="googleLogin()">Login with Google</button>
+
+    <button class="btn save" onclick="saveLogin()">Save Login</button>
+
+    <p class="info">لازم تضغط حفظ لتفعيل الدخول التلقائي</p>
+
   </div>
+
 </div>
 
 <!-- DASHBOARD -->
-<div id="dashboard" class="hidden">
+<div id="dashboard" class="hidden zoom">
 
-  <header class="glass-header">
-    <img src="assets/logo.png" class="logo-small">
-    <h2>Minecraft Panel</h2>
-  </header>
+  <div class="glass header">
+    <img src="assets/logo.png" class="logo tiny">
+    <h3>Server Setup Wizard</h3>
+  </div>
 
-  <div class="container">
+  <div class="glass card">
 
-    <div class="glass-card">
-      <h3>👋 Welcome</h3>
-      <p id="user"></p>
-    </div>
+    <h4>Step 1 of 4 -- Server Info</h4>
 
-    <div class="glass-card">
-      <h3>Control</h3>
+    <p class="info">
+      من أين تحصل على IP السيرفر:<br>
+      My Servers → Aternos → اختر السيرفر → Connect<br>
+      مثال: myserver.aternos.me:25565
+    </p>
 
-      <button class="btn green" onclick="startBot()">Start</button>
-      <button class="btn red" onclick="stopBot()">Stop</button>
-    </div>
+    <label>Server IP</label>
+    <input type="text" placeholder="Enter Server IP">
+
+    <label>Port (default 25565)</label>
+    <input type="number" placeholder="25565">
+
+    <button class="btn">Ping</button>
+
+    <p class="status">لم يتم الاختبار بعد</p>
 
   </div>
 
