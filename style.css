@@ -1,30 +1,97 @@
-.login {
+body {
+  margin: 0;
+  font-family: Arial;
+  background: url("assets/bg.jpg") no-repeat center center fixed;
+  background-size: cover;
+  color: white;
+}
+
+/* CENTER LOGIN */
+.center {
   height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
-  background-image: url("assets/bg.jpg");
-  background-size: cover;
 }
 
-.login-box {
-  background: rgba(0,0,0,0.8);
+/* GLASS EFFECT */
+.glass-box, .glass-card, .glass-header {
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255,255,255,0.2);
+  border-radius: 15px;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.4);
+}
+
+/* LOGIN BOX */
+.glass-box {
   padding: 30px;
   text-align: center;
-  border-radius: 10px;
-  width: 250px;
+  width: 300px;
 }
 
-.login-box input {
-  width: 90%;
-  padding: 10px;
-  margin: 10px 0;
+.logo {
+  width: 120px;
+}
+
+/* HEADER */
+.glass-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 15px;
+  margin: 10px;
+}
+
+.logo-small {
+  width: 40px;
+}
+
+/* CONTAINER */
+.container {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 40px;
+  flex-wrap: wrap;
+}
+
+/* CARD */
+.glass-card {
+  padding: 20px;
+  width: 250px;
+  text-align: center;
+}
+
+/* BUTTONS */
+.glass-btn {
+  margin-top: 10px;
+  padding: 12px 20px;
+  border: none;
+  cursor: pointer;
+  border-radius: 10px;
+  color: white;
+
+  background: rgba(255,255,255,0.15);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255,255,255,0.3);
+
+  transition: 0.3s;
+}
+
+.glass-btn:hover {
+  transform: scale(1.05);
+  background: rgba(255,255,255,0.25);
+}
+
+.green {
+  border-color: lime;
+}
+
+.red {
+  border-color: red;
 }
 
 .hidden {
   display: none;
-}
-
-#error {
-  color: red;
 }
