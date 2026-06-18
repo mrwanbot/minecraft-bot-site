@@ -1,51 +1,52 @@
 <!DOCTYPE html>
-<html lang="ar">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Minecraft Bot Panel</title>
+  <title>Minecraft Panel</title>
+
   <link rel="stylesheet" href="style.css">
+
+  <!-- Firebase -->
+  <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-auth-compat.js"></script>
 </head>
 
 <body>
 
-<!-- LOGIN SCREEN -->
-<div id="loginPage" class="login">
-  <div class="login-box">
+<!-- LOGIN -->
+<div id="loginPage" class="center">
+  <div class="glass-box">
     <img src="assets/logo.png" class="logo">
 
-    <h2>Login</h2>
+    <h1>Minecraft Panel</h1>
+    <p>Login to continue</p>
 
-    <input type="text" id="username" placeholder="Username">
-    <input type="password" id="password" placeholder="Password">
-
-    <button onclick="login()">Login</button>
-
-    <p id="error"></p>
+    <button class="glass-btn" onclick="googleLogin()">
+      🔐 Sign in with Google
+    </button>
   </div>
 </div>
 
-<!-- MAIN PANEL -->
-<div id="panel" class="hidden">
+<!-- DASHBOARD -->
+<div id="dashboard" class="hidden">
 
-  <header>
-    <img src="assets/logo.png" class="logo">
-    <h1>Minecraft Bot Panel</h1>
+  <header class="glass-header">
+    <img src="assets/logo.png" class="logo-small">
+    <h2>Dashboard</h2>
   </header>
 
   <div class="container">
 
-    <div class="card">
-      <h2>Bot Status</h2>
-      <p id="status">Offline</p>
-      <button onclick="startBot()">Start Bot</button>
-      <button onclick="stopBot()">Stop Bot</button>
+    <div class="glass-card">
+      <h3>👋 Welcome</h3>
+      <p id="user"></p>
     </div>
 
-    <div class="card">
-      <h2>Commands</h2>
-      <input type="text" id="command" placeholder="Enter command">
-      <button onclick="sendCommand()">Send</button>
+    <div class="glass-card">
+      <h3>Bot Control</h3>
+
+      <button class="glass-btn green" onclick="startBot()">Start Bot</button>
+      <button class="glass-btn red" onclick="stopBot()">Stop Bot</button>
     </div>
 
   </div>
