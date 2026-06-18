@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Minecraft Hosting Panel</title>
+<title>تسجيل الدخول</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
@@ -12,12 +12,9 @@
 
 <body>
 
-<!-- 🔐 PAGE 1: LOGIN -->
-<div id="loginPage" class="center">
+<div class="center">
 
   <div class="glass box">
-
-    <img src="assets/logo.png" class="logo">
 
     <h2>تسجيل الدخول</h2>
 
@@ -26,49 +23,47 @@
     <button class="btn" onclick="login()">دخول</button>
     <button class="btn ghost" onclick="save()">حفظ الدخول</button>
 
-    <p class="info">هذه الصفحة للدخول فقط</p>
-
   </div>
 
 </div>
 
-<!-- 🎮 PAGE 2: DASHBOARD -->
-<div id="dashboard" class="hidden">
+<script>
+const PASSWORD = "151525";
 
-  <div class="topbar glass">
-    <img src="assets/logo.png" class="logo small">
-    <span>لوحة استضافة السيرفر</span>
-  </div>
+/* 🔥 إذا محفوظ دخول → يدخل مباشرة */
+window.onload = function () {
+  if (localStorage.getItem("loggedIn") === "true") {
+    window.location.href = "panel.html";
+  }
+};
 
-  <div class="container">
+/* تسجيل دخول */
+function login() {
+  const p = document.getElementById("password").value;
+  const saved = localStorage.getItem("savedPass");
 
-    <div class="step">الخطوة 1 من 4</div>
-    <div class="title">بيانات السيرفر</div>
+  if (p === PASSWORD || p === saved) {
+    localStorage.setItem("loggedIn", "true");
+    window.location.href = "panel.html";
+  } else {
+    alert("كلمة السر خطأ ❌");
+  }
+}
 
-    <div class="card glass">
+/* حفظ الدخول */
+function save() {
+  const p = document.getElementById("password").value;
 
-      <p class="desc">
-        للحصول على IP السيرفر:<br><br>
-        My Servers → Aternos → Connect<br>
-        example: myserver.aternos.me:25565
-      </p>
+  if (p === PASSWORD) {
+    localStorage.setItem("savedPass", p);
+    localStorage.setItem("loggedIn", "true");
+    alert("تم الحفظ ✔ لن يطلب تسجيل الدخول مرة ثانية");
+    window.location.href = "panel.html";
+  } else {
+    alert("كلمة السر غير صحيحة");
+  }
+}
+</script>
 
-      <label>عنوان السيرفر (IP)</label>
-      <input placeholder="server ip">
-
-      <label>Port</label>
-      <input placeholder="25565">
-
-      <button class="btn">Ping Server</button>
-
-      <div class="status">الحالة: لم يتم الاختبار</div>
-
-    </div>
-
-  </div>
-
-</div>
-
-<script src="script.js"></script>
 </body>
 </html>
