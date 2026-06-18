@@ -1,4 +1,4 @@
-// Firebase config (ضع بياناتك هنا من Firebase)
+// Firebase config (ضع كودك من Firebase هنا)
 const firebaseConfig = {
   apiKey: "YOUR_API_KEY",
   authDomain: "YOUR_AUTH_DOMAIN",
@@ -11,7 +11,7 @@ const firebaseConfig = {
 firebase.initializeApp(firebaseConfig);
 const auth = firebase.auth();
 
-// LOGIN
+// LOGIN GOOGLE
 function googleLogin() {
   const provider = new firebase.auth.GoogleAuthProvider();
 
