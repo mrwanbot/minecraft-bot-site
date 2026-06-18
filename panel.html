@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>لوحة الاستضافة</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<!-- TOP -->
+<div class="topbar glass">
+  <span>لوحة استضافة السيرفر</span>
+  <button class="btn ghost small" onclick="logout()">خروج</button>
+</div>
+
+<!-- CONTENT -->
+<div class="container">
+
+  <div class="step">الخطوة 1 من 4</div>
+  <div class="title">بيانات السيرفر</div>
+
+  <div class="card glass">
+
+    <p class="desc">
+      My Servers → Aternos → Connect<br>
+      example: myserver.aternos.me:25565
+    </p>
+
+    <label>IP السيرفر</label>
+    <input placeholder="server ip">
+
+    <label>Port</label>
+    <input placeholder="25565">
+
+    <button class="btn">Ping</button>
+
+    <div class="status">الحالة: لم يتم الاختبار</div>
+
+  </div>
+
+</div>
+
+<script>
+function logout() {
+  localStorage.removeItem("loggedIn");
+  window.location.href = "index.html";
+}
+</script>
+
+</body>
+</html>
