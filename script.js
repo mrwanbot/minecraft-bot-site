@@ -1,3 +1,4 @@
+// Firebase config (حط بياناتك هنا)
 const firebaseConfig = {
   apiKey: "AIzaSyDngvbbt_cfql7fyQkAeqmJ9qrxyKxqApo",
   authDomain: "minecraft-panel-7fdfe-52128.firebaseapp.com",
@@ -6,12 +7,13 @@ const firebaseConfig = {
   messagingSenderId: "621779806797",
   appId: "1:621779806797:web:413324c0a0cc6891b24a04"
 };
+
 firebase.initializeApp(firebaseConfig);
 const auth = firebase.auth();
 
 let currentUser = null;
 
-/* LOGIN */
+/* LOGIN GOOGLE */
 function googleLogin() {
   const provider = new firebase.auth.GoogleAuthProvider();
 
@@ -19,11 +21,10 @@ function googleLogin() {
     .then(result => {
       currentUser = result.user;
 
-      // إذا محفوظ يدخل مباشرة
       if (localStorage.getItem("savedUser") === currentUser.uid) {
         openDashboard(currentUser);
       } else {
-        alert("سجّلت دخول، الآن اضغط حفظ للدخول الدائم");
+        alert("تم تسجيل الدخول، اضغط Save لتفعيل الدخول التلقائي");
       }
     })
     .catch(err => alert(err.message));
@@ -32,13 +33,13 @@ function googleLogin() {
 /* SAVE LOGIN */
 function saveLogin() {
   if (!currentUser) {
-    alert("سجّل دخول أولاً");
+    alert("سجل دخول أولاً");
     return;
   }
 
   localStorage.setItem("savedUser", currentUser.uid);
 
-  alert("تم الحفظ ✔ الآن الدخول سيكون تلقائي");
+  alert("تم الحفظ ✔");
 
   openDashboard(currentUser);
 }
