@@ -1,36 +1,36 @@
-function login() {
-  let user = document.getElementById("username").value;
-  let pass = document.getElementById("password").value;
-  let error = document.getElementById("error");
+// Firebase config (ضع كودك هنا)
+const firebaseConfig = {
+  apiKey: "YOUR_API_KEY",
+  authDomain: "YOUR_AUTH_DOMAIN",
+  projectId: "YOUR_PROJECT_ID",
+  storageBucket: "YOUR_STORAGE_BUCKET",
+  messagingSenderId: "YOUR_SENDER_ID",
+  appId: "YOUR_APP_ID"
+};
 
-  // بيانات تسجيل دخول (تجريبية فقط)
-  if(user === "admin" && pass === "1234") {
-    document.getElementById("loginPage").style.display = "none";
-    document.getElementById("panel").classList.remove("hidden");
-  } else {
-    error.innerHTML = "❌ Wrong username or password";
-  }
+firebase.initializeApp(firebaseConfig);
+const auth = firebase.auth();
+
+// LOGIN
+function googleLogin() {
+  const provider = new firebase.auth.GoogleAuthProvider();
+
+  auth.signInWithPopup(provider)
+    .then(result => {
+      document.getElementById("loginPage").style.display = "none";
+      document.getElementById("dashboard").classList.remove("hidden");
+
+      document.getElementById("user").innerText =
+        result.user.displayName;
+    })
+    .catch(err => alert(err.message));
 }
 
-// Bot functions
-let statusText = document.getElementById("status");
-
+// BOT (شكلي)
 function startBot() {
-  statusText.innerHTML = "Online 🟢";
-  statusText.style.color = "lime";
+  alert("Bot Started 🟢");
 }
 
 function stopBot() {
-  statusText.innerHTML = "Offline 🔴";
-  statusText.style.color = "red";
-}
-
-function sendCommand() {
-  let cmd = document.getElementById("command").value;
-  if(cmd === "") {
-    alert("اكتب أمر أولاً!");
-  } else {
-    alert("Command sent: " + cmd);
-    document.getElementById("command").value = "";
-  }
+  alert("Bot Stopped 🔴");
 }
