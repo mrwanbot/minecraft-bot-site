@@ -3,18 +3,15 @@ margin: 0;
 font-family: 'Cairo', sans-serif;
 color: white;
 
-/* 🔥 خلفية AI مثل HuggingFace */
 background: radial-gradient(circle at top, #1b2233, #0b0f19 60%, #05070d);
 
 min-height: 100vh;
-overflow-x: hidden;
 
-/* 🇸🇦 عربي صحيح */
 direction: rtl;
 text-align: right;
 }
 
-/* GRID */
+/* grid */
 body::before {
 content: "";
 position: fixed;
@@ -28,7 +25,7 @@ opacity: 0.25;
 pointer-events: none;
 }
 
-/* GLASS */
+/* glass */
 .glass {
 background: rgba(255,255,255,0.06);
 backdrop-filter: blur(18px);
@@ -36,7 +33,7 @@ border: 1px solid rgba(255,255,255,0.12);
 border-radius: 16px;
 }
 
-/* LOGIN CENTER */
+/* login */
 .center {
 height: 100vh;
 display: flex;
@@ -44,39 +41,27 @@ justify-content: center;
 align-items: center;
 }
 
-/* LOGIN BOX */
 .box {
 width: 300px;
 text-align: center;
 padding: 20px;
 }
 
-/* LOGO */
-.logo {
-width: 90px;
-display: block;
-margin: auto;
-}
-
-.logo.small {
-width: 40px;
-}
-
-/* TOPBAR */
+/* topbar */
 .topbar {
 display: flex;
+justify-content: space-between;
 align-items: center;
-gap: 10px;
 padding: 12px;
 margin: 10px;
 }
 
-/* CONTAINER */
+/* container */
 .container {
 padding: 15px;
 }
 
-/* STEP */
+/* step */
 .step {
 text-align: center;
 font-size: 13px;
@@ -89,32 +74,25 @@ font-size: 20px;
 margin-bottom: 10px;
 }
 
-/* CARD */
+/* card */
 .card {
 padding: 15px;
 }
 
-/* DESC */
-.desc {
-font-size: 12px;
-opacity: 0.8;
-margin-bottom: 10px;
-}
-
-/* INPUT */
+/* inputs */
 input {
 width: 100%;
 padding: 12px;
 margin: 8px 0;
-border-radius: 10px;
 border: none;
+border-radius: 10px;
 outline: none;
 background: rgba(255,255,255,0.08);
 color: white;
 text-align: right;
 }
 
-/* BUTTON */
+/* buttons */
 .btn {
 width: 100%;
 padding: 12px;
@@ -124,6 +102,7 @@ border: 1px solid rgba(255,255,255,0.15);
 color: white;
 border-radius: 12px;
 cursor: pointer;
+transition: 0.2s;
 }
 
 .btn:hover {
@@ -135,14 +114,19 @@ background: transparent;
 border: 1px solid rgba(255,255,255,0.4);
 }
 
-/* STATUS */
+.small {
+width: auto;
+padding: 8px 12px;
+}
+
+/* text */
+.desc {
+font-size: 12px;
+opacity: 0.8;
+}
+
 .status {
 margin-top: 10px;
 font-size: 12px;
 opacity: 0.6;
-}
-
-/* HIDDEN */
-.hidden {
-display: none;
 }
